@@ -32,6 +32,28 @@ type FilterConfiguration struct {
 	Query *string `json:"query"`
 }
 
+// reqMonitors receives a slice of all monitors
+type reqPipelines struct {
+	Pipelines LogsPipelineList
+}
+
+// GetLogsPipeline queries Logs Public Config API with given a pipeline id for the complete pipeline object.
+func (client *Client) GetLogsPipelines() ([]LogsPipeline, error) {
+	list, err := client.GetLogsPipelineList()
+	if err != nil {
+		return nil, err
+	}
+	arr := make([]LogsPipeline, 0)
+	for _, id := range list.PipelineIds {
+		p, err := client.GetLogsPipeline(id)
+		if err != nil {
+			continue
+		}
+		arr = append(arr, *p)
+	}
+	return arr, nil
+}
+
 // GetLogsPipeline queries Logs Public Config API with given a pipeline id for the complete pipeline object.
 func (client *Client) GetLogsPipeline(id string) (*LogsPipeline, error) {
 	var pipeline LogsPipeline

@@ -59,7 +59,8 @@ func main() {
 	ioutil.WriteFile(packageCmdPath+"/root.go", []byte(newRootCode), os.ModePerm)
 
 	// build....
-	cmd := exec.Command("go", "build", "-o", "terraformer-"+provider)
+	cmd := exec.Command("go", "build", "-o", "terraformer-"+provider, "-mod vendor")
+	println(cmd.String())
 	var outb, errb bytes.Buffer
 	cmd.Stdout = &outb
 	cmd.Stderr = &errb

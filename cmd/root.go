@@ -39,32 +39,32 @@ func Execute() error {
 func providerImporterSubcommands() []func(options ImportOptions) *cobra.Command {
 	return []func(options ImportOptions) *cobra.Command{
 		// Major Cloud
-		newCmdGoogleImporter,
-		newCmdAwsImporter,
-		newCmdAzureImporter,
-		newCmdAliCloudImporter,
+		// 		newCmdGoogleImporter,
+		// 		newCmdAwsImporter,
+		// 		newCmdAzureImporter,
+		// 		newCmdAliCloudImporter,
 		// Cloud
-		newCmdDigitalOceanImporter,
-		newCmdFastlyImporter,
-		newCmdHerokuImporter,
-		newCmdLinodeImporter,
-		newCmdOpenStackImporter,
-		newCmdVultrImporter,
+		// 		newCmdDigitalOceanImporter,
+		// 		newCmdFastlyImporter,
+		// 		newCmdHerokuImporter,
+		// 		newCmdLinodeImporter,
+		// 		newCmdOpenStackImporter,
+		// 		newCmdVultrImporter,
 		// Infrastructure Software
-		newCmdKubernetesImporter,
-		newCmdOctopusDeployImporter,
-		newCmdRabbitMQImporter,
+		// 		newCmdKubernetesImporter,
+		// 		newCmdOctopusDeployImporter,
+		// 		newCmdRabbitMQImporter,
 		// Network
-		newCmdCloudflareImporter,
+		// 		newCmdCloudflareImporter,
 		// VCS
-		newCmdGithubImporter,
+		// 		newCmdGithubImporter,
 		// Monitoring & System Management
 		newCmdDatadogImporter,
-		newCmdNewRelicImporter,
+		// 		newCmdNewRelicImporter,
 		// Community
-		newCmdKeycloakImporter,
-		newCmdLogzioImporter,
-		newCmdCommercetoolsImporter,
+		// 		newCmdKeycloakImporter,
+		// 		newCmdLogzioImporter,
+		// 		newCmdCommercetoolsImporter,
 	}
 }
 
@@ -72,32 +72,32 @@ func providerGenerators() map[string]func() terraform_utils.ProviderGenerator {
 	list := make(map[string]func() terraform_utils.ProviderGenerator)
 	for _, providerGen := range []func() terraform_utils.ProviderGenerator{
 		// Major Cloud
-		newGoogleProvider,
-		newAWSProvider,
-		newAzureProvider,
-		newAliCloudProvider,
+		// 		newGoogleProvider,
+		// 		newAWSProvider,
+		// 		newAzureProvider,
+		// 		newAliCloudProvider,
 		// Cloud
-		newDigitalOceanProvider,
-		newFastlyProvider,
-		newHerokuProvider,
-		newLinodeProvider,
-		newOpenStackProvider,
-		newVultrProvider,
+		// 		newDigitalOceanProvider,
+		// 		newFastlyProvider,
+		// 		newHerokuProvider,
+		// 		newLinodeProvider,
+		// 		newOpenStackProvider,
+		// 		newVultrProvider,
 		// Infrastructure Software
-		newKubernetesProvider,
-		newOctopusDeployProvider,
-		newRabbitMQProvider,
+		// 		newKubernetesProvider,
+		// 		newOctopusDeployProvider,
+		// 		newRabbitMQProvider,
 		// Network
-		newCloudflareProvider,
+		// 		newCloudflareProvider,
 		// VCS
-		newGitHubProvider,
+		// 		newGitHubProvider,
 		// Monitoring & System Management
 		newDataDogProvider,
-		newNewRelicProvider,
+		// 		newNewRelicProvider,
 		// Community
-		newKeycloakProvider,
-		newLogzioProvider,
-		newCommercetoolsProvider,
+		// 		newKeycloakProvider,
+		// 		newLogzioProvider,
+		// 		newCommercetoolsProvider,
 	} {
 		list[providerGen().GetName()] = providerGen
 	}
